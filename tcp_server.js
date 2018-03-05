@@ -1,4 +1,6 @@
 const net = require('net');
+
+var port = process.env.PORT || 8000;
 const server = net.createServer((c) => {
     // 'connection' listener
     console.log('client connected');
@@ -11,6 +13,6 @@ c.pipe(c);
 server.on('error', (err) => {
     throw err;
 });
-server.listen(8124, () => {
-    console.log('server bound');
+server.listen(port, () => {
+    console.log('server bound on port ',port);
 });
